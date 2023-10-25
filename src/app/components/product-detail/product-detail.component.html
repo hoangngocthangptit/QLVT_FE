@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-6">
+      <div class="image-container">
+        <img [src]="data.link" alt="Image" />
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="info-container">
+        <div class="info-row">
+        <div *ngFor="let info of data.listInfo" class="info-item">
+          <p class="info-text-inline">Loại: 型号 {{info.type}}  </p>
+          <p class="info-text-inline">Giá: {{info.price}} 元</p>
+          <p class="info-text-inline">Số lượng: {{info.quantity}} 包可售</p>
+        </div>
+        </div>
+      </div>    
+    </div>
+  </div>

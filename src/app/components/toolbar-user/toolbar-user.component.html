@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>trang clone</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .search-container input[type="text"] {
+      padding: 5px;
+      border: none;
+      outline: none;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <input [(ngModel)]="link"  type="text"  placeholder="Nhập link...">
+    <button [disabled]="loading" class="custom-button" (click)="crawl()">
+      <span *ngIf="loading">
+        <i class="fa fa-spinner fa-spin"></i> Đang tải...
+      </span>
+      <span *ngIf="!loading">Crawl</span>
+    </button> 
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+
+<div class="search-container mt-5">
+  <input [(ngModel)]="link"  type="text" placeholder="Nhập link...">
+  <!-- <input type="submit" value="Crawl"> -->
+  <button (click)="crawl()"  [disabled]="loading"> <span *ngIf="loading">
+    <i class="fa fa-spinner fa-spin"></i> Đang tải...
+  </span>
+  <span *ngIf="!loading">Crawl</span></button>
+</div>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row"> 
+          <div class="col-md-12">
+             
+              <div class="row">
+                <div class="col-6">
+                    <div *ngIf="zoomed" >
+                        <img src="{{ zoomedImage }}" alt="Zoomed Image" (click)="closeZoomed()">
+                      </div>
+                      <div *ngIf="!zoomed && data.images.length > 0">
+                        <img src="{{ data.images[0] }}" alt="Image" (click)="zoomImage(data.images[0])">
+                      </div>
+                      <div class="image-gallery">
+                          <div *ngFor="let image of data.images" class="image-item">
+                            <img src="{{ image }}" alt="Image" (click)="zoomImage(image)">
+                          </div>
+                        
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div  *ngIf="data?.title !== null" class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title" style="text-align: center">{{ data?.title }}</h4>
+                    </div>
+                </div>
+                <div class="price-list">
+                  <div class="price-list">
+                    <div *ngFor="let price of data.price; let i = index" class="price-item">
+                      <p>
+                        {{ price }} 元
+                        <span *ngIf="i < data.price.length - 1" class="separator" style="margin-left: 40px;">~</span>
+                      </p>
+                    </div>
+                  </div>
+                    </div>
+                      <div>
+                        <div class="image-gallery">
+                          <div *ngFor="let image of data.listValue" class="image-item">
+                            <img *ngIf="image.imageUrl!=''" src="{{image.imageUrl}}" alt="Image" (click)="showDetails(image)">
+                          </div>
+                      
+                    </div>
+                    <div *ngIf="selectedImageClicked">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Spec Attrs</th>
+                            <th>Price</th>
+                            <th>Can Book Count</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let info of selectedItem.listInfo">
+                            <td>{{ info.specAttrs }}</td>
+                            <td>{{ info.price }}</td>
+                            <td>{{ info.canBookCount }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+                      <div *ngIf="!selectedImageClicked">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Spec Attrs</th>
+                              <th>Price</th>
+                              <th>Can Book Count</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let info of data.listValue[0].listInfo" >
+                              <td>{{ info.specAttrs }}</td>
+                              <td>{{ info.price }}</td>
+                              <td>{{ info.canBookCount }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- <div *ngFor="let info of data.listValue[0].listInfo" >
+                          <p class="info-text-inline">{{info.specAttrs}}</p>
+                          <p class="info-text-inline">Price: {{info.price}}</p>
+                          <p class="info-text-inline">Can Book Count: {{info.canBookCount}}</p> -->
+                      
+                   
+                      </div>
+                        </div>
+            
+                </div>
+               </div>
+
+
+
+
+          </div>
+       
+      </div>
+  </div>
+</div>
