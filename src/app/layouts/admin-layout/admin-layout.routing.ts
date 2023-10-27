@@ -11,6 +11,9 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RegistrationComponent } from 'app/auth/registration/registration.component';
 import { LoginComponentComponent } from 'app/auth/login-component/login-component.component';
 import { TableProductComponent } from 'app/components/table-product/table-product.component';
+import { KhoComponent } from 'app/QLKho/kho/kho.component';
+
+
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -18,6 +21,7 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'login', component: LoginComponentComponent},
     {path: 'register', component: RegistrationComponent},
     { path: 'table-list',     component: TableListComponent },
+    { path: 'kho',        component: KhoComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'typography',     component: TypographyComponent },
@@ -25,6 +29,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+
     // {path: 'list-product',       component: TableProductComponent},
 
 ];

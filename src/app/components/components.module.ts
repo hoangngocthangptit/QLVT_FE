@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarUserComponent } from './toolbar-user/toolbar-user.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +17,7 @@ import { ToolbarUserComponent } from './toolbar-user/toolbar-user.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+   
    
   ],
   exports: [

@@ -34,6 +34,9 @@ import { ToolbarUserComponent } from './components/toolbar-user/toolbar-user.com
 import { TableProductComponent } from './components/table-product/table-product.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { TypographyComponent } from './typography/typography.component';
+import { EditAddComponent } from './QLKho/edit-add/edit-add.component';
+import { KhoComponent } from './QLKho/kho/kho.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 // import { NgImageSliderModule } from 'ng-image-slider';
 // import { FlexLayoutModule } from '@angular/flex-layout';
@@ -65,6 +68,7 @@ import { TypographyComponent } from './typography/typography.component';
     RouterModule,
     AppRoutingModule,
     MatTableModule,
+    MatDatepickerModule,
    
 
 
@@ -75,12 +79,16 @@ import { TypographyComponent } from './typography/typography.component';
     LoginComponentComponent,
     RegistrationComponent,
     TableListComponent,
+    KhoComponent,
     DialalogDeleteComponent,
     ProductDetailComponent,
     ToolbarUserComponent,
     TableProductComponent,
     UpgradeComponent,
     TypographyComponent,
+    EditAddComponent,
+
+
     
   ],
   providers: [{

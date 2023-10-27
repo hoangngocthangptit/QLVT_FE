@@ -18,6 +18,7 @@ const routes: Routes =[
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponentComponent},
   {path: 'crawl', component: ToolbarUserComponent},
+  
   {
     path: '',
     component: AdminLayoutComponent,
