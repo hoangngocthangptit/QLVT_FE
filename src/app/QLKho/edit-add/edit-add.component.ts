@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class EditAddComponentKho implements OnInit {
 
   empForm: FormGroup;
-
+  public  chiNhanhs = [];
 
     // education: string[] = [
     //   'x',
@@ -27,7 +27,7 @@ export class EditAddComponentKho implements OnInit {
       private _empService: MainService,
       private _dialogRef: MatDialogRef<EditAddComponentKho>,
       @Inject(MAT_DIALOG_DATA) public data: any,
-      private _coreService: CoreService
+      private khoService: MainService,
     ) {
       this.empForm = this._fb.group({
         tenKho: '',
@@ -44,8 +44,13 @@ export class EditAddComponentKho implements OnInit {
   
     ngOnInit(): void {
       this.empForm.patchValue(this.data);
+      this.listChiNhanh();
     }
-  
+  listChiNhanh(){
+   this.khoService.getAllChiNhanh().subscribe((res: any) => {
+      this.chiNhanhs = res.obj;
+    });
+  }
     onFormSubmit() {
       if (this.empForm.valid) {
         if (this.data) {

@@ -39,8 +39,12 @@
         </div> -->
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Chi Nhanh</mat-label>
-                <input matInput placeholder="select box đối sau" type="number" formControlName="maCN">
+                <mat-label>Chi Nhánh</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of chiNhanhs" [value]="food.maCN">
+                      {{food.chiNhanh}}
+                    </mat-option>
+                  </mat-select>
             </mat-form-field>
             <!-- <mat-form-field appearance="outline">
                 <mat-label>Package</mat-label>
