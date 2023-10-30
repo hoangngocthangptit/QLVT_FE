@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditAddComponentKho } from './edit-add.component';
+import { QLChiNhanhComponent } from './qlchi-nhanh.component';
 
-describe('EditAddComponent', () => {
-  let component: EditAddComponentKho;
-  let fixture: ComponentFixture<EditAddComponentKho>;
+describe('QLChiNhanhComponent', () => {
+  let component: QLChiNhanhComponent;
+  let fixture: ComponentFixture<QLChiNhanhComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditAddComponentKho ]
+      declarations: [ QLChiNhanhComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditAddComponentKho);
+    fixture = TestBed.createComponent(QLChiNhanhComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

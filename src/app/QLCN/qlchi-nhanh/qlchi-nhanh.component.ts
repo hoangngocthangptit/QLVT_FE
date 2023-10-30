@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { DialalogDeleteComponent } from 'app/dialalog-delete/dialalog-delete.component';
 import Swal from 'sweetalert2';
 import { MainService } from 'app/Service/main.service';
-import { EditAddComponentKho } from '../edit-add/edit-add.component';
+import { EditAddComponentChiNhanh } from '../edit-add/edit-add.component';
 export interface PeriodicElement {
   position: number;
   ten: string;
@@ -16,11 +16,12 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [];
 @Component({
-  selector: 'app-kho',
-  templateUrl: './kho.component.html',
-  styleUrls: ['./kho.component.scss']
+  selector: 'app-qlchi-nhanh',
+  templateUrl: './qlchi-nhanh.component.html',
+  styleUrls: ['./qlchi-nhanh.component.scss']
 })
-export class KhoComponent implements OnInit {
+export class QLChiNhanhComponent implements OnInit {
+
   constructor(private dialog: MatDialog,
     private khoService: MainService,
     private route: Router) { }
@@ -41,7 +42,7 @@ export class KhoComponent implements OnInit {
     this.doSearh();
   }
   doSearh() {
-    this.khoService.getAllKho().subscribe((res: any) => {
+    this.khoService.getAllChiNhanh().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.obj);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -72,7 +73,7 @@ export class KhoComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.userService.deleteKho(id).subscribe((message) => {
+        this.userService.deleteChiNhanh(id).subscribe((message) => {
           Swal.fire({
             icon: "success",
             title: "đã xóa",
@@ -83,8 +84,8 @@ export class KhoComponent implements OnInit {
       }
     });
   }
-  addForm(){
-    const dialogRef = this.dialog.open(EditAddComponentKho);
+  addForm() {
+    const dialogRef = this.dialog.open(EditAddComponentChiNhanh);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
@@ -94,7 +95,7 @@ export class KhoComponent implements OnInit {
     });
   }
   openEditForm(data: any) {
-    const dialogRef = this.dialog.open(EditAddComponentKho, {
+    const dialogRef = this.dialog.open(EditAddComponentChiNhanh, {
       data,
     });
 
@@ -106,7 +107,7 @@ export class KhoComponent implements OnInit {
       },
     });
   }
- 
-  displayedColumns: string[] = ['position', 'name','diaChi', 'actions'];
-}
 
+  displayedColumns: string[] = ['position', 'name', 'diaChi', 'sdt','actions'];
+
+}

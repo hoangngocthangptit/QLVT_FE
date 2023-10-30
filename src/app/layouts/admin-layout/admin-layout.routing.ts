@@ -12,6 +12,7 @@ import { RegistrationComponent } from 'app/auth/registration/registration.compon
 import { LoginComponentComponent } from 'app/auth/login-component/login-component.component';
 import { TableProductComponent } from 'app/components/table-product/table-product.component';
 import { KhoComponent } from 'app/QLKho/kho/kho.component';
+import { QLChiNhanhComponent } from 'app/QLCN/qlchi-nhanh/qlchi-nhanh.component';
 
 
 
@@ -20,7 +21,7 @@ export const AdminLayoutRoutes: Routes = [
   
     {path: 'login', component: LoginComponentComponent},
     {path: 'register', component: RegistrationComponent},
-    { path: 'table-list',     component: TableListComponent },
+    { path: 'chi-nhanh',     component: QLChiNhanhComponent },
     { path: 'kho',        component: KhoComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },

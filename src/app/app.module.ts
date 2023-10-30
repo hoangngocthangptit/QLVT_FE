@@ -34,10 +34,11 @@ import { ToolbarUserComponent } from './components/toolbar-user/toolbar-user.com
 import { TableProductComponent } from './components/table-product/table-product.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { TypographyComponent } from './typography/typography.component';
-import { EditAddComponent } from './QLKho/edit-add/edit-add.component';
+import { EditAddComponentKho } from './QLKho/edit-add/edit-add.component';
 import { KhoComponent } from './QLKho/kho/kho.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { QLChiNhanhComponent } from './QLCN/qlchi-nhanh/qlchi-nhanh.component';
+import { EditAddComponentChiNhanh } from './QLCN/edit-add/edit-add.component';
 // import { NgImageSliderModule } from 'ng-image-slider';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
@@ -86,7 +87,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     TableProductComponent,
     UpgradeComponent,
     TypographyComponent,
-    EditAddComponent,
+    EditAddComponentKho,
+    QLChiNhanhComponent,
+    EditAddComponentChiNhanh,
 
 
     

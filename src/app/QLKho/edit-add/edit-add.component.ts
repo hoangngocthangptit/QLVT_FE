@@ -9,7 +9,7 @@ import { CoreService } from 'app/core/core.service';
   templateUrl: './edit-add.component.html',
   styleUrls: ['./edit-add.component.scss']
 })
-export class EditAddComponent implements OnInit {
+export class EditAddComponentKho implements OnInit {
 
   empForm: FormGroup;
 
@@ -25,7 +25,7 @@ export class EditAddComponent implements OnInit {
     constructor(
       private _fb: FormBuilder,
       private _empService: MainService,
-      private _dialogRef: MatDialogRef<EditAddComponent>,
+      private _dialogRef: MatDialogRef<EditAddComponentKho>,
       @Inject(MAT_DIALOG_DATA) public data: any,
       private _coreService: CoreService
     ) {
