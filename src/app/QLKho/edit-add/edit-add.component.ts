@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MainService } from 'app/Service/main.service';
 import { CoreService } from 'app/core/core.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-add',
   templateUrl: './edit-add.component.html',
@@ -53,7 +53,10 @@ export class EditAddComponentKho implements OnInit {
             .updateKho(this.data.maKho, this.empForm.value)
             .subscribe({
               next: (val: any) => {
-                this._coreService.openSnackBar('Employee detail updated!');
+                Swal.fire({
+                  icon: "success",
+                  title: "Sửa thành công",
+                });
                 this._dialogRef.close(true);
               },
               error: (err: any) => {
@@ -63,7 +66,10 @@ export class EditAddComponentKho implements OnInit {
         } else {
           this._empService.addKho(this.empForm.value).subscribe({
             next: (val: any) => {
-              this._coreService.openSnackBar('Đã thêm thành công');
+              Swal.fire({
+                icon: "success",
+                title: "Thêm thành công",
+              });
               this._dialogRef.close(true);
             },
             error: (err: any) => {
