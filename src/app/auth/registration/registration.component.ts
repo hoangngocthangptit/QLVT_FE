@@ -23,11 +23,11 @@ export class RegistrationComponent implements OnInit {
   token: string|undefined;
   protected aFormGroup: FormGroup;
   public form = {
-    name: null,
+    hoTen: null,
     email: null,
     password: null,
     confirmPassword: null,
-    mobileNumber: null,
+    sdt: null,
     role: null,
     recaptcha:null,
     token:undefined

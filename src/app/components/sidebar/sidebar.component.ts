@@ -8,14 +8,16 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  // { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-  { path: '/chi-nhanh', title: 'Quản lí chi nhánh', icon: 'content_paste', class: '' },
-  { path: '/kho', title: 'Quản lí kho', icon: 'person', class: '' },
-  { path: '/typography', title: 'List Product', icon: 'library_books', class: '' },
-  { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-  // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-  // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-  // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+    // { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+    { path: '/chi-nhanh', title: 'Quản lí chi nhánh',  icon:'content_paste', class: '' },
+    { path: '/kho', title: 'Quản lí kho',  icon:'unarchive', class: '' },
+    { path: '/vat-tu', title: 'Quản lí vật tư',  icon:'content_paste', class: '' },
+    // { path: '/typography', title: 'List Product',  icon:'library_books', class: '' },
+    { path: '/nhan-vien', title: 'Danh sách nhân viên',  icon:'person', class: '' },
+    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
+    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
+    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+    // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 ];
 
 @Component({
@@ -32,12 +34,13 @@ export class SidebarComponent implements OnInit {
     this.getRole();
   }
   getRole() {
+   
     const isAdmin = localStorage.getItem('role') === "admin";
 
     if (localStorage.getItem('token') !== null && !isAdmin) {
       this.menuItems = ROUTES.filter(item => item.path === '/icons');
     } else {
-      this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography');
+      this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography' ||  item.path ==='/vat-tu' ||  item.path ==='/nhan-vien' );
     }
   }
   isMobileMenu() {

@@ -66,7 +66,7 @@ export class LoginComponentComponent implements OnInit {
     // }
     // if (this.form.role === 'user') {
       // localStorage.setItem('role', 'user');
-      this.route.navigateByUrl('typography');
+      this.route.navigateByUrl('chi-nhanh');
       return;
     // }
 }

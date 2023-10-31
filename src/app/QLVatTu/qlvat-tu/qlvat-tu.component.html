@@ -18,60 +18,46 @@
               </td>
 
             </ng-container>
-            <ng-container matColumnDef="email">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Email</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.email}} </td>
-            </ng-container>
             <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Họ tên</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.hoTen}} </td>
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Vật tư</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.tenVT}} </td>
             </ng-container>
-            <ng-container matColumnDef="diaChi">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Số điện thoại</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.sdt}} </td>
+            <ng-container matColumnDef="soLuongTon">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Số lượng tồn</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.soLuongTon}} </td>
             </ng-container>
-            <ng-container matColumnDef="role">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Role</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.role}} </td>
+            <ng-container matColumnDef="dvt">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Đơn vị</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.dvt}} </td>
             </ng-container>
-            <ng-container matColumnDef="trangThai">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Trạng thái</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> <ng-container
-                  *ngIf="element.trangThai; else inactiveContent">
-                  Hoạt động
-                </ng-container>
-                <ng-template #inactiveContent>
-
-                  Khóa
-                </ng-template>
-              </td>
-            </ng-container>
-
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center; width: 10%;">
-
+                <button mat-raised-button color="primary" (click)="addForm()">Thêm bản ghi</button>
               </th>
               <td mat-cell *matCellDef="let element">
                 <button mat-icon-button (click)="openEditForm(element)">
                   <mat-icon>edit</mat-icon>
                 </button>
+                <button mat-icon-button (click)="deleteDilag(element.maVT)">
+                  <mat-icon>delete</mat-icon>
+                </button>
               </td>
             </ng-container>
             <!-- <ng-container matColumnDef="thaoTac">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center; width: 10%;"> Thao tác
-                </th>
-                <td mat-cell *matCellDef="let row; let i = index" class="cell-button" style="  text-align: center;">
-                  <div style="display: flex;">
-  
-                    <ul matTooltip="xem thông tin" href="javascript:void(0)" (click)="openEditForm(row)">
-                      <i class='fa fa-eye' style="font-size:24px ;color:#000080"></i>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center; width: 10%;"> Thao tác
+              </th>
+              <td mat-cell *matCellDef="let row; let i = index" class="cell-button" style="  text-align: center;">
+                <div style="display: flex;">
+
+                  <ul matTooltip="xem thông tin" href="javascript:void(0)" (click)="openEditForm(row)">
+                    <i class='fa fa-eye' style="font-size:24px ;color:#000080"></i>
+                </ul>
+                  <ul matTooltip="Xóa" href="javascript:void(0)" (click)="deleteDilag(row.id)">
+                      <i class='fa fa-trash' style="font-size:24px ;color:#000080"></i>
                   </ul>
-                    <ul matTooltip="Xóa" href="javascript:void(0)" (click)="deleteDilag(row.id)">
-                        <i class='fa fa-trash' style="font-size:24px ;color:#000080"></i>
-                    </ul>
-                </div>
-                </td>
-            </ng-container> -->
+              </div>
+              </td>
+          </ng-container> -->
             <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
             <tr class="mat-row" *matNoDataRow>

@@ -3,62 +3,42 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MainService } from 'app/Service/main.service';
 import { CoreService } from 'app/core/core.service';
-import { log } from 'console';
 import Swal from 'sweetalert2';
-
 @Component({
-  selector: 'app-edit-nv',
-  templateUrl: './edit-nv.component.html',
-  styleUrls: ['./edit-nv.component.scss']
+  selector: 'app-edit-add',
+  templateUrl: './edit-add.component.html',
+  styleUrls: ['./edit-add.component.scss']
 })
-export class EditNvComponent implements OnInit {
+export class EditAddComponentVatTu implements OnInit {
   empForm: FormGroup;
-  public  chiNhanhs = [];
-  public pass= undefined;
   constructor(
     private _fb: FormBuilder,
     private _empService: MainService,
-    private _dialogRef: MatDialogRef<EditNvComponent>,
+    private _dialogRef: MatDialogRef<EditAddComponentVatTu>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private khoService: MainService,
+    private _coreService: CoreService
   ) {
     this.empForm = this._fb.group({
-      hoTen: '',
-      sdt: '',
-      diaChi: '',
-      role:'',
-      trangThai:'',
-      password:''
-      // gender: '',
-      // education: '',
-      // company: '',
-      // experience: '',
-      // package: '',
+      dvt: '',
+      soLuongTon: '',
+      tenVT: '',
     });
   }
 
   ngOnInit(): void {
     this.empForm.patchValue(this.data);
-    this.listChiNhanh();
   }
-  listChiNhanh(){
-    this.khoService.getAllChiNhanh().subscribe((res: any) => {
-       this.chiNhanhs = res.obj;
-     });
-   }
-   onFormSubmit() {
-    
+
+  onFormSubmit() {
     if (this.empForm.valid) {
-        if(this.pass !=undefined && this.pass != ''){
-          this.empForm.value.password = this.pass;
-        }
+      if (this.data) {
         this._empService
-          .updateNV(this.data.userId, this.empForm.value)
+          .updateVatTu(this.data.maVT, this.empForm.value)
           .subscribe({
             next: (val: any) => {
               Swal.fire({
                 icon: "success",
-                title: "Cập nhật thông tin thành công",
+                title: "Sửa thành công",
               });
               this._dialogRef.close(true);
             },
@@ -66,6 +46,20 @@ export class EditNvComponent implements OnInit {
               console.error(err);
             },
           });
+      } else {
+        this._empService.addVatTu(this.empForm.value).subscribe({
+          next: (val: any) => {
+            Swal.fire({
+              icon: "success",
+              title: "Thêm thành công",
+            });
+            this._dialogRef.close(true);
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
+      }
     }
   }
 

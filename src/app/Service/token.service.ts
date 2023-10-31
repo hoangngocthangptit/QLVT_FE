@@ -15,8 +15,8 @@ export class TokenService {
   public set(data) {
     localStorage.setItem('token', data.token);
     localStorage.setItem('email', data.obj.email);
-    localStorage.setItem('Name', data.obj.name);
-    localStorage.setItem('phone', data.obj.mobileNumber);
+    localStorage.setItem('hoTen', data.obj.hoTen);
+    // localStorage.setItem('phone', data.obj.mobileNumber);
     localStorage.setItem('id',data.obj.userId);
     localStorage.setItem('role',data.obj.role);
   }
@@ -28,7 +28,7 @@ export class TokenService {
   remove() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
-    localStorage.removeItem('Name');
+    localStorage.removeItem('hoTen');
     localStorage.removeItem('role');
     localStorage.removeItem('phone');
     localStorage.removeItem('userid');

@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 import { DialalogDeleteComponent } from 'app/dialalog-delete/dialalog-delete.component';
 import Swal from 'sweetalert2';
 import { MainService } from 'app/Service/main.service';
-import { EditNvComponent } from '../edit-nv/edit-nv.component';
-
+import { EditAddComponentVatTu } from '../edit-add/edit-add.component';
 export interface PeriodicElement {
   position: number;
   ten: string;
@@ -17,17 +16,20 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [];
 @Component({
-  selector: 'app-nhan-vien',
-  templateUrl: './nhan-vien.component.html',
-  styleUrls: ['./nhan-vien.component.scss']
+  selector: 'app-qlvat-tu',
+  templateUrl: './qlvat-tu.component.html',
+  styleUrls: ['./qlvat-tu.component.scss']
 })
-export class NhanVienComponent implements OnInit {
+export class QLVatTuComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
     private khoService: MainService,
     private route: Router) { }
   public get userService(): MainService {
     return this.khoService;
+  }
+  public set userService(value: MainService) {
+    this.khoService = value;
   }
   dataSource: any = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   name: string;
@@ -40,7 +42,7 @@ export class NhanVienComponent implements OnInit {
     this.doSearh();
   }
   doSearh() {
-    this.khoService.getAllNV().subscribe((res: any) => {
+    this.khoService.getAllVatTu().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.obj);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -49,10 +51,12 @@ export class NhanVienComponent implements OnInit {
   onChangePage(event: any) {
     this.pageSize = event.pageSize;
     this.page = event.pageIndex;
+
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -69,7 +73,7 @@ export class NhanVienComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.userService.deleteKho(id).subscribe((message) => {
+        this.userService.deleteVatTu(id).subscribe((message) => {
           Swal.fire({
             icon: "success",
             title: "đã xóa",
@@ -79,9 +83,18 @@ export class NhanVienComponent implements OnInit {
       }
     });
   }
-
+  addForm() {
+    const dialogRef = this.dialog.open(EditAddComponentVatTu);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.doSearh();
+        }
+      },
+    });
+  }
   openEditForm(data: any) {
-    const dialogRef = this.dialog.open(EditNvComponent, {
+    const dialogRef = this.dialog.open(EditAddComponentVatTu, {
       data,
     });
 
@@ -94,6 +107,6 @@ export class NhanVienComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position','email' , 'name', 'diaChi','role','trangThai', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'soLuongTon', 'dvt', 'actions'];
 
 }

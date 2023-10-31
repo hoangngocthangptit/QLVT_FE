@@ -13,6 +13,8 @@ import { LoginComponentComponent } from 'app/auth/login-component/login-componen
 import { TableProductComponent } from 'app/components/table-product/table-product.component';
 import { KhoComponent } from 'app/QLKho/kho/kho.component';
 import { QLChiNhanhComponent } from 'app/QLCN/qlchi-nhanh/qlchi-nhanh.component';
+import { QLVatTuComponent } from 'app/QLVatTu/qlvat-tu/qlvat-tu.component';
+import { NhanVienComponent } from 'app/QLNV/nhan-vien/nhan-vien.component';
 
 
 
@@ -22,14 +24,15 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'login', component: LoginComponentComponent},
     {path: 'register', component: RegistrationComponent},
     { path: 'chi-nhanh',     component: QLChiNhanhComponent },
+    { path: 'vat-tu',     component: QLVatTuComponent },
     { path: 'kho',        component: KhoComponent },
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'nhan-vien',      component: NhanVienComponent },
+    // { path: 'user-profile',   component: UserProfileComponent },
     { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    // { path: 'icons',          component: IconsComponent },
+    // { path: 'maps',           component: MapsComponent },
+    // { path: 'notifications',  component: NotificationsComponent },
+    // { path: 'upgrade',        component: UpgradeComponent },
 
     // {path: 'list-product',       component: TableProductComponent},
 

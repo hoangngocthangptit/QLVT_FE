@@ -41,6 +41,8 @@ import { QLChiNhanhComponent } from './QLCN/qlchi-nhanh/qlchi-nhanh.component';
 import { EditAddComponentChiNhanh } from './QLCN/edit-add/edit-add.component';
 import { NhanVienComponent } from './QLNV/nhan-vien/nhan-vien.component';
 import { EditNvComponent } from './QLNV/edit-nv/edit-nv.component';
+import { QLVatTuComponent } from './QLVatTu/qlvat-tu/qlvat-tu.component';
+import { EditAddComponentVatTu } from './QLVatTu/edit-add/edit-add.component';
 // import { NgImageSliderModule } from 'ng-image-slider';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
@@ -94,6 +96,8 @@ import { EditNvComponent } from './QLNV/edit-nv/edit-nv.component';
     EditAddComponentChiNhanh,
     NhanVienComponent,
     EditNvComponent,
+    QLVatTuComponent,
+    EditAddComponentVatTu,
 
 
     

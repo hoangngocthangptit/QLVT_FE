@@ -60,7 +60,7 @@
                 <div class="alert alert-success text-justify" [hidden]="!message">{{message}}</div>
                 <mat-form-field appearance="outline" fxLayout="column" style="width: 100%;">
                     <mat-label>Enter Your name</mat-label>
-                    <input matInput minlength="3" maxlength="20" #name="ngModel" required [(ngModel)]="form.name" name="name">
+                    <input matInput minlength="3" maxlength="20" #name="ngModel" required [(ngModel)]="form.hoTen" name="name">
                     <mat-error>Please Enter valid Name </mat-error>
 
                 </mat-form-field>
@@ -88,7 +88,7 @@
             <div class="example-container">
             <mat-form-field appearance="outline">
                 <mat-label>Enter your Phone Number </mat-label>
-                <input #phoneNumber="ngModel" pattern="^[0-9]\d{9}$" [(ngModel)]="form.mobileNumber" minlength="9" maxlength="12" name="mobileNumber" matInput placeholder="Placeholder" required>
+                <input #phoneNumber="ngModel" pattern="^[0-9]\d{9}$" [(ngModel)]="form.sdt" minlength="9" maxlength="12" name="mobileNumber" matInput placeholder="Placeholder" required>
                 <mat-icon style="color: #e1e4e4;" matSuffix>phone</mat-icon>
                 <mat-error>Enter valid Phone number </mat-error>
          

@@ -38,4 +38,39 @@ export class MainService {
     return this.http.put(`http://localhost:8080/chi-nhanh/edit/${id}`, data);
   }
 
+  //nhà cung cấp
+  getAllNhaCungCap(): Observable<any> {
+    return this.http.get('http://localhost:8080/nha-cung-cap', this.httpOptions);
+  }
+  deleteNhaCungCap(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/nha-cung-cap/delete/${id}`);
+  }
+  addNhaCungCap(data: any): Observable<any> {
+    return this.http.post('http://localhost:8080/nha-cung-cap/insert', data);
+  }
+  updateNhaCungCap(id: number, data: any): Observable<any> {
+    return this.http.put(`http://localhost:8080/nha-cung-cap/edit/${id}`, data);
+  }
+
+  //vật tư
+  getAllVatTu(): Observable<any> {
+    return this.http.get('http://localhost:8080/vat-tu', this.httpOptions);
+  }
+  deleteVatTu(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/vat-tu/delete/${id}`);
+  }
+  addVatTu(data: any): Observable<any> {
+    return this.http.post('http://localhost:8080/vat-tu/insert', data);
+  }
+  updateVatTu(id: number, data: any): Observable<any> {
+    return this.http.put(`http://localhost:8080/vat-tu/edit/${id}`, data);
+  }
+  // nhân viên
+  getAllNV(): Observable<any> {
+    return this.http.get('http://localhost:8080/User/getAll', this.httpOptions);
+  }
+  updateNV(id: number, data: any): Observable<any> {
+    return this.http.put(`http://localhost:8080/user/edit/${id}`, data);
+  }
+
 }

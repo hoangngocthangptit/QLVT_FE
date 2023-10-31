@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
     role: string;
     name:any;
     ngOnInit(){
-        this.name=localStorage.getItem('Name');
+        this.name=localStorage.getItem('hoTen');
         this.role = localStorage.getItem('role');
         if (this.role === 'admin') {this.isLogin = true;}
       this.listTitles = ROUTES.filter(listTitle => listTitle);
