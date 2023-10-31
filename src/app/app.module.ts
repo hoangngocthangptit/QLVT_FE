@@ -39,6 +39,8 @@ import { KhoComponent } from './QLKho/kho/kho.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { QLChiNhanhComponent } from './QLCN/qlchi-nhanh/qlchi-nhanh.component';
 import { EditAddComponentChiNhanh } from './QLCN/edit-add/edit-add.component';
+import { NhanVienComponent } from './QLNV/nhan-vien/nhan-vien.component';
+import { EditNvComponent } from './QLNV/edit-nv/edit-nv.component';
 // import { NgImageSliderModule } from 'ng-image-slider';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
@@ -90,6 +92,8 @@ import { EditAddComponentChiNhanh } from './QLCN/edit-add/edit-add.component';
     EditAddComponentKho,
     QLChiNhanhComponent,
     EditAddComponentChiNhanh,
+    NhanVienComponent,
+    EditNvComponent,
 
 
     

@@ -56,7 +56,6 @@ export class LoginComponentComponent implements OnInit {
     this.token.logedIn(true);
     console.log('user is --->' + data);
     // if (this.form.role === 'admin') {
-      localStorage.setItem('role', 'admin');
     //   this.route.navigateByUrl('chart');
     //   return;
     // }

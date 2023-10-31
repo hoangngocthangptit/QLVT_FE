@@ -17,7 +17,8 @@ export class TokenService {
     localStorage.setItem('email', data.obj.email);
     localStorage.setItem('Name', data.obj.name);
     localStorage.setItem('phone', data.obj.mobileNumber);
-    localStorage.setItem('id',data.obj.userId)
+    localStorage.setItem('id',data.obj.userId);
+    localStorage.setItem('role',data.obj.role);
   }
   // getting token from the local storage
  public get() {

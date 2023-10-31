@@ -50,12 +50,10 @@ export class KhoComponent implements OnInit {
   onChangePage(event: any) {
     this.pageSize = event.pageSize;
     this.page = event.pageIndex;
-
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -78,12 +76,11 @@ export class KhoComponent implements OnInit {
             title: "đã xóa",
           });
           this.doSearh();
-
         });
       }
     });
   }
-  addForm(){
+  addForm() {
     const dialogRef = this.dialog.open(EditAddComponentKho);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
@@ -106,7 +103,7 @@ export class KhoComponent implements OnInit {
       },
     });
   }
- 
-  displayedColumns: string[] = ['position', 'name','diaChi', 'actions'];
+
+  displayedColumns: string[] = ['position', 'name', 'diaChi', 'actions'];
 }
 
