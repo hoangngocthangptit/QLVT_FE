@@ -72,5 +72,155 @@ export class MainService {
   updateNV(id: number, data: any): Observable<any> {
     return this.http.put(`http://localhost:8080/user/edit/${id}`, data);
   }
+  //-----------------------
+  // phiếu nhập
+
+  /* GET http://localhost:8080/phieu-nhap?maNV=NV0001
+  tạm thời support search bằng 1 trong các trường sau: maPN, maNV, maKho, ngay(yyyy-MM-dd)
+  {
+    "message": "thành công",
+    "statusCode": 200,
+    "obj": [
+      {
+        "maPN": "PN6714",
+        "ngay": "2021-11-03",
+        "maKho": "KHO0001",
+        "maNV": "NV0001",
+        "ctpn": [
+          {
+            "maVT": "VT0001",
+            "soLuong": 20,
+            "donGia": 100000.0
+          }
+        ]
+      }
+    ]
+  }
+  */
+  getAllPhieuNhap(): Observable<any> {
+    return this.http.get('http://localhost:8080/phieu-nhap', this.httpOptions);
+  }
+
+  //DELETE http://localhost:8080/phieu-nhap/delete/PN9974
+  deletePhieuNhap(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/phieu-nhap/delete/${id}`);
+  }
+
+  /* 
+  POST http://localhost:8080/phieu-nhap/insert
+  Content-Type: application/json
+
+  {
+    "maKho": "KHO0001",
+    "maNV": "NV0001",
+    "ngay": "2021-11-03",
+    "ctpn": [
+      {
+        "soLuong": 10,
+        "donGia": 100000,
+        "maVT": "VT0001"
+      }
+    ]
+  }
+  */
+  addPhieuNhap(data: any): Observable<any> {
+    return this.http.post('http://localhost:8080/phieu-nhap/insert', data);
+  }
+
+  /*
+  PUT http://localhost:8080/phieu-nhap/edit/PN2717
+  Content-Type: application/json
+
+  {
+    "maKho": "KHO0001",
+    "maNV": "NV0001",
+    "ngay": "2021-11-03",
+    "ctpn": [
+      {
+        "soLuong": 20,
+        "donGia": 100000,
+        "maVT": "VT0001"
+      }
+    ]
+  }
+  */
+  updatePhieuNhap(id: number, data: any): Observable<any> {
+    return this.http.put(`http://localhost:8080/phieu-nhap/edit/${id}`, data);
+  }
+
+  //-----------------------
+  // phiếu xuất
+  /* GET http://localhost:8080/phieu-xuat?maNV=NV0001
+  tạm thời support search bằng 1 trong các trường sau: maPX, maNV, maKho, ngay(yyyy-MM-dd)
+  {
+    "message": "thành công",
+    "statusCode": 200,
+    "obj": [
+      {
+        "maPN": "PX0489",
+        "ngay": "2021-11-03",
+        "maKho": "KHO0001",
+        "maNV": "NV0001",
+        "ctpx": [
+          {
+            "maVT": "VT0001",
+            "soLuong": 20,
+            "donGia": 100000.0
+          }
+        ]
+      }
+    ]
+  }
+  */
+  getAllPhieuXuat(): Observable<any> {
+    return this.http.get('http://localhost:8080/phieu-xuat', this.httpOptions);
+  }
+
+  //DELETE http://localhost:8080/phieu-xuat/delete/PX9974
+  deletePhieuXuat(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/phieu-xuat/delete/${id}`);
+  }
+
+  /*
+  POST http://localhost:8080/phieu-xuat/insert
+  Content-Type: application/json
+
+  {
+    "maKho": "KHO0001",
+    "maNV": "NV0001",
+    "ngay": "2021-11-03",
+    "ctpx": [
+      {
+        "soLuong": 10,
+        "donGia": 100000,
+        "maVT": "VT0001"
+      }
+    ]
+  }
+  */
+  addPhieuXuat(data: any): Observable<any> {
+    return this.http.post('http://localhost:8080/phieu-xuat/insert', data);
+  }
+
+  /*
+  PUT http://localhost:8080/phieu-xuat/edit/PX0489
+  Content-Type: application/json
+
+  {
+    "maKho": "KHO0001",
+    "maNV": "NV0001",
+    "ngay": "2021-11-03",
+    "ctpx": [
+      {
+        "soLuong": 20,
+        "donGia": 100000,
+        "maVT": "VT0001"
+      }
+    ]
+  }
+  */
+  updatePhieuXuat(id: number, data: any): Observable<any> {
+    return this.http.put(`http://localhost:8080/phieu-xuat/edit/${id}`, data);
+  }
 
 }
