@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
     ngOnInit(){
         this.name=localStorage.getItem('hoTen');
         this.role = localStorage.getItem('role');
-        if (this.role === 'admin') {this.isLogin = true;}
+        if (this.role === 'admin' ||this.role ==="nvkho" ) {this.isLogin = true;}
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];

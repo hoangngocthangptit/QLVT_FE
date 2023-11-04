@@ -22,6 +22,10 @@
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Chi nhánh</th>
               <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.chiNhanh}} </td>
             </ng-container>
+            <ng-container matColumnDef="ma">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> mã Chi nhánh</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maCN}} </td>
+            </ng-container>
             <ng-container matColumnDef="diaChi">
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Tên địa chỉ</th>
               <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.diaChi}} </td>

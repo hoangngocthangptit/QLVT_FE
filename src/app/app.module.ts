@@ -43,6 +43,12 @@ import { NhanVienComponent } from './QLNV/nhan-vien/nhan-vien.component';
 import { EditNvComponent } from './QLNV/edit-nv/edit-nv.component';
 import { QLVatTuComponent } from './QLVatTu/qlvat-tu/qlvat-tu.component';
 import { EditAddComponentVatTu } from './QLVatTu/edit-add/edit-add.component';
+import { QLPhieuNhapComponent } from './NVKho/qlphieu-nhap/qlphieu-nhap.component';
+import { QLPhieuXuatComponent } from './NVKho/qlphieu-xuat/qlphieu-xuat.component';
+import { EditAddPhieunhapComponent } from './NVKho/edit-add-phieunhap/edit-add-phieunhap.component';
+import { EditAddPhieuxuatComponent } from './NVKho/edit-add-phieuxuat/edit-add-phieuxuat.component';
+import { ListNCCComponent } from './QLNCC/list-ncc/list-ncc.component';
+import { EditAddNccComponent } from './QLNCC/edit-add-ncc/edit-add-ncc.component';
 // import { NgImageSliderModule } from 'ng-image-slider';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
@@ -63,17 +69,19 @@ import { EditAddComponentVatTu } from './QLVatTu/edit-add/edit-add.component';
     MatSnackBarModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatInputModule,
+    MatDatepickerModule,
     RecaptchaFormsModule,
     RecaptchaModule,
     RecaptchaModule,
     MatIconModule,
-    MatInputModule,
     MatPaginatorModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
     MatTableModule,
-    MatDatepickerModule,
+   
+    
    
 
 
@@ -98,6 +106,12 @@ import { EditAddComponentVatTu } from './QLVatTu/edit-add/edit-add.component';
     EditNvComponent,
     QLVatTuComponent,
     EditAddComponentVatTu,
+    QLPhieuNhapComponent,
+    QLPhieuXuatComponent,
+    EditAddPhieunhapComponent,
+    EditAddPhieuxuatComponent,
+    ListNCCComponent,
+    EditAddNccComponent,
 
 
     

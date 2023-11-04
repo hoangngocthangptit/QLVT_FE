@@ -66,7 +66,13 @@ export class LoginComponentComponent implements OnInit {
     // }
     // if (this.form.role === 'user') {
       // localStorage.setItem('role', 'user');
+      debugger
+     if (data.obj.role === 'admin') {
       this.route.navigateByUrl('chi-nhanh');
+     }
+     else{
+      this.route.navigateByUrl('phieu-nhap');
+     }
       return;
     // }
 }

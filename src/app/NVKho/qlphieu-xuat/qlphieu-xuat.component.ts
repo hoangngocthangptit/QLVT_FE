@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 import { DialalogDeleteComponent } from 'app/dialalog-delete/dialalog-delete.component';
 import Swal from 'sweetalert2';
 import { MainService } from 'app/Service/main.service';
-import { EditNvComponent } from '../edit-nv/edit-nv.component';
-
+import { EditAddPhieunhapComponent } from '../edit-add-phieunhap/edit-add-phieunhap.component';
 export interface PeriodicElement {
   position: number;
   ten: string;
@@ -17,17 +16,20 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [];
 @Component({
-  selector: 'app-nhan-vien',
-  templateUrl: './nhan-vien.component.html',
-  styleUrls: ['./nhan-vien.component.scss']
+  selector: 'app-qlphieu-xuat',
+  templateUrl: './qlphieu-xuat.component.html',
+  styleUrls: ['./qlphieu-xuat.component.scss']
 })
-export class NhanVienComponent implements OnInit {
+export class QLPhieuXuatComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
     private khoService: MainService,
     private route: Router) { }
   public get userService(): MainService {
     return this.khoService;
+  }
+  public set userService(value: MainService) {
+    this.khoService = value;
   }
   dataSource: any = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   name: string;
@@ -40,7 +42,7 @@ export class NhanVienComponent implements OnInit {
     this.doSearh();
   }
   doSearh() {
-    this.khoService.getAllNV().subscribe((res: any) => {
+    this.khoService.getAllPhieuXuat().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.obj);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -79,9 +81,18 @@ export class NhanVienComponent implements OnInit {
       }
     });
   }
-
+  addForm() {
+    const dialogRef = this.dialog.open(EditAddPhieunhapComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.doSearh();
+        }
+      },
+    });
+  }
   openEditForm(data: any) {
-    const dialogRef = this.dialog.open(EditNvComponent, {
+    const dialogRef = this.dialog.open(EditAddPhieunhapComponent, {
       data,
     });
 
@@ -94,6 +105,6 @@ export class NhanVienComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position','email' , 'ma','name', 'diaChi','role','trangThai', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'diaChi','maNV','maVT','soluong','dongia', 'actions'];
 
 }

@@ -1,0 +1,96 @@
+<div class="col-md-12 mb-5">
+    <div class="card card-plain">
+  
+      <p class="card-category"></p>
+  
+      <div class="mb-5">
+        <div class="card-body">
+          <mat-form-field>
+            <mat-label class="mb-3" style="text-align: center;">Tìm kiếm</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Nhập vào" #input>
+          </mat-form-field>
+          <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef style="width: 2%;"> STT </th>
+                <td mat-cell *matCellDef="let row; let i = index">
+                  {{ i + 1 }}
+                </td>
+  
+              </ng-container>
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> mã phiếu nhập</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maPN}} </td>
+              </ng-container>
+              <ng-container matColumnDef="diaChi">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Ngày nhập</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.ngay}} </td>
+              </ng-container>
+              <ng-container matColumnDef="maNV">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mã NV</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maNV}} </td>
+              </ng-container>
+              <ng-container matColumnDef="maVT">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mã VT</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.ctpn[0].maVT}} </td>
+              </ng-container>
+              <ng-container matColumnDef="soluong">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Sô lượng</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.ctpn[0].soLuong}} </td>
+              </ng-container>
+              <ng-container matColumnDef="dongia">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Đơn giá</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.ctpn[0].donGia}} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center; width: 10%;">
+                  <button mat-raised-button color="primary" (click)="addForm()">Tạo phiếu</button>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-icon-button (click)="openEditForm(element)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="deleteDilag(element.maKho)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+              <!-- <ng-container matColumnDef="thaoTac">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center; width: 10%;"> Thao tác
+                </th>
+                <td mat-cell *matCellDef="let row; let i = index" class="cell-button" style="  text-align: center;">
+                  <div style="display: flex;">
+  
+                    <ul matTooltip="xem thông tin" href="javascript:void(0)" (click)="openEditForm(row)">
+                      <i class='fa fa-eye' style="font-size:24px ;color:#000080"></i>
+                  </ul>
+                    <ul matTooltip="Xóa" href="javascript:void(0)" (click)="deleteDilag(row.id)">
+                        <i class='fa fa-trash' style="font-size:24px ;color:#000080"></i>
+                    </ul>
+                </div>
+                </td>
+            </ng-container> -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell font-semibold" *ngIf="!dataSource || dataSource; else emptyResult" colspan="12"
+                  style="text-align: center;font-weight: bold">
+                  Không tìm thấy kết quả phù hợp với từ khóa
+                </td>
+                <ng-template #emptyResult>
+                  <td class="mat-cell" colspan="12">
+                    Không tìm thấy kết quả phù hợp với từ khóa !
+                  </td>
+                </ng-template>
+              </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[10,25,50,100]" showFirstLastButtons [pageSize]="pageSize"
+              [length]="totalItems" (page)=" onChangePage($event)"></mat-paginator>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+  
+    </div>
+  </div>

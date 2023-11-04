@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -7,8 +8,7 @@ import { Router } from '@angular/router';
 import { DialalogDeleteComponent } from 'app/dialalog-delete/dialalog-delete.component';
 import Swal from 'sweetalert2';
 import { MainService } from 'app/Service/main.service';
-import { EditNvComponent } from '../edit-nv/edit-nv.component';
-
+import { EditAddNccComponent } from '../edit-add-ncc/edit-add-ncc.component';
 export interface PeriodicElement {
   position: number;
   ten: string;
@@ -16,18 +16,22 @@ export interface PeriodicElement {
   heSo: string;
 }
 const ELEMENT_DATA: PeriodicElement[] = [];
+
 @Component({
-  selector: 'app-nhan-vien',
-  templateUrl: './nhan-vien.component.html',
-  styleUrls: ['./nhan-vien.component.scss']
+  selector: 'app-list-ncc',
+  templateUrl: './list-ncc.component.html',
+  styleUrls: ['./list-ncc.component.scss']
 })
-export class NhanVienComponent implements OnInit {
+export class ListNCCComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
     private khoService: MainService,
     private route: Router) { }
   public get userService(): MainService {
     return this.khoService;
+  }
+  public set userService(value: MainService) {
+    this.khoService = value;
   }
   dataSource: any = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   name: string;
@@ -40,7 +44,7 @@ export class NhanVienComponent implements OnInit {
     this.doSearh();
   }
   doSearh() {
-    this.khoService.getAllNV().subscribe((res: any) => {
+    this.khoService.getAllKho().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.obj);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -79,9 +83,18 @@ export class NhanVienComponent implements OnInit {
       }
     });
   }
-
+  addForm() {
+    const dialogRef = this.dialog.open(EditAddNccComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.doSearh();
+        }
+      },
+    });
+  }
   openEditForm(data: any) {
-    const dialogRef = this.dialog.open(EditNvComponent, {
+    const dialogRef = this.dialog.open(EditAddNccComponent, {
       data,
     });
 
@@ -94,6 +107,6 @@ export class NhanVienComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position','email' , 'ma','name', 'diaChi','role','trangThai', 'actions'];
+  displayedColumns: string[] = ['position', 'name','ma', 'diaChi', 'actions'];
 
 }

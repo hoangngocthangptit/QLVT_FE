@@ -26,6 +26,10 @@
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Họ tên</th>
               <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.hoTen}} </td>
             </ng-container>
+            <ng-container matColumnDef="ma">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;">Mã NV</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maNV}} </td>
+            </ng-container>
             <ng-container matColumnDef="diaChi">
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Số điện thoại</th>
               <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.sdt}} </td>

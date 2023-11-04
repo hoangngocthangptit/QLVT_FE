@@ -24,7 +24,7 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Quyền</mat-label>
-                <select matNativeControl required>
+                <select matNativeControl required formControlName="role">
                     <option value="admin">Admin</option>
                     <option value="nvkho">NVKho</option>
 
@@ -34,7 +34,7 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Trạng thái</mat-label>
-                <select matNativeControl required>
+                <select matNativeControl required formControlName="trangThai">
                     <option value="true">Hoạt động</option>
                     <option value="false">Khóa</option>
                   </select>

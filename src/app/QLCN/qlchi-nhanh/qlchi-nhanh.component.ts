@@ -108,6 +108,6 @@ export class QLChiNhanhComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position', 'name', 'diaChi', 'sdt', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'ma','diaChi', 'sdt', 'actions'];
 
 }

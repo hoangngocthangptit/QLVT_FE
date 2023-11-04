@@ -1,0 +1,60 @@
+<div mat-dialog-title>
+    <h1>Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+
+
+
+        <!-- <div class="row">
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-label><b>Gender</b></mat-label>
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-radio-button value="others">Others</mat-radio-button>
+            </mat-radio-group>
+        </div> -->
+
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Chi Nhánh</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of listKho" [value]="food.maKho">
+                      {{food.tenKho}}
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nhân viên</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of listNV" [value]="food.maNV">
+                      {{food.hoTen}}
+                    </mat-option>
+                  </mat-select>
+       </mat-form-field>
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Package</mat-label>
+                <input matInput placeholder="Ex. 12" type="number" formControlName="package">
+                <mat-hint>In rupees</mat-hint>
+            </mat-form-field> -->
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Đơn giá</mat-label>
+                <input matInput placeholder="nhập giá" formControlName="donGia">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label> số lượng</mat-label>
+                <input matInput type="number" placeholder="nhập số lượng" formControlName="diaChi">
+            </mat-form-field>
+        </div>
+        <div class="row col-6">
+            <input type="date" class="form-control" [(ngModel)]="selectedDate">
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>

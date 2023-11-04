@@ -15,6 +15,9 @@ import { KhoComponent } from 'app/QLKho/kho/kho.component';
 import { QLChiNhanhComponent } from 'app/QLCN/qlchi-nhanh/qlchi-nhanh.component';
 import { QLVatTuComponent } from 'app/QLVatTu/qlvat-tu/qlvat-tu.component';
 import { NhanVienComponent } from 'app/QLNV/nhan-vien/nhan-vien.component';
+import { QLPhieuNhapComponent } from 'app/NVKho/qlphieu-nhap/qlphieu-nhap.component';
+import { QLPhieuXuatComponent } from 'app/NVKho/qlphieu-xuat/qlphieu-xuat.component';
+import { ListNCCComponent } from 'app/QLNCC/list-ncc/list-ncc.component';
 
 
 
@@ -28,8 +31,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'kho',        component: KhoComponent },
     { path: 'nhan-vien',      component: NhanVienComponent },
     // { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'typography',     component: TypographyComponent },
-    // { path: 'icons',          component: IconsComponent },
+    { path: 'phieu-nhap',     component: QLPhieuNhapComponent },
+    { path: 'phieu-xuat',     component: QLPhieuXuatComponent },
+    { path: 'nha-cung-cap',          component: ListNCCComponent },
     // { path: 'maps',           component: MapsComponent },
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent },

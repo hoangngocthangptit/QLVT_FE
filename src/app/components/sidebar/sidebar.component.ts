@@ -12,9 +12,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/chi-nhanh', title: 'Quản lí chi nhánh',  icon:'content_paste', class: '' },
     { path: '/kho', title: 'Quản lí kho',  icon:'unarchive', class: '' },
     { path: '/vat-tu', title: 'Quản lí vật tư',  icon:'content_paste', class: '' },
-    // { path: '/typography', title: 'List Product',  icon:'library_books', class: '' },
+    { path: '/phieu-nhap', title: 'Quản lí phiếu nhập',  icon:'library_books', class: '' },
+    { path: '/phieu-xuat', title: 'Quản lí phiếu xuất',  icon:'library_books', class: '' },
     { path: '/nhan-vien', title: 'Danh sách nhân viên',  icon:'person', class: '' },
-    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
+    { path: '/nha-cung-cap', title: 'Nhà cung cấp',  icon:'unarchive', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
@@ -38,9 +39,9 @@ export class SidebarComponent implements OnInit {
     const isAdmin = localStorage.getItem('role') === "admin";
 
     if (localStorage.getItem('token') !== null && !isAdmin) {
-      this.menuItems = ROUTES.filter(item => item.path === '/icons');
+      this.menuItems = ROUTES.filter(item => item.path === '/phieu-nhap' || item.path === '/kho' || item.path === '/phieu-xuat'  );
     } else {
-      this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography' ||  item.path ==='/vat-tu' ||  item.path ==='/nhan-vien' );
+      this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography' ||  item.path ==='/vat-tu' ||  item.path ==='/nhan-vien' || item.path === '/nha-cung-cap' );
     }
   }
   isMobileMenu() {
