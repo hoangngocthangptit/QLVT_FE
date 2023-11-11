@@ -34,6 +34,7 @@ export class EditAddNccComponent implements OnInit {
         tenNCC: '',
         maCN: '',
         sdt: '',
+        diaChi:'',
   
         // gender: '',
         // education: '',

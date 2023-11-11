@@ -31,7 +31,6 @@ export class EditAddComponentKho implements OnInit {
     ) {
       this.empForm = this._fb.group({
         tenKho: '',
-        maCN: '',
         diaChi: '',
   
         // gender: '',

@@ -14,44 +14,6 @@
             </mat-form-field>
         </div>
 
-
-        <!-- <div class="row">
-            <mat-radio-group aria-label="Select an option" formControlName="gender">
-                <mat-label><b>Gender</b></mat-label>
-                <mat-radio-button value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
-                <mat-radio-button value="others">Others</mat-radio-button>
-            </mat-radio-group>
-        </div> -->
-
-        <!-- <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Education</mat-label>
-                <mat-select formControlName="education">
-                    <mat-option *ngFor="let val of education" [value]="val">{{val}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Company</mat-label>
-                <input matInput placeholder="Ex. Google" formControlName="company">
-            </mat-form-field>
-        </div> -->
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Chi Nhánh</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let food of chiNhanhs" [value]="food.maCN">
-                      {{food.chiNhanh}}
-                    </mat-option>
-                  </mat-select>
-            </mat-form-field>
-            <!-- <mat-form-field appearance="outline">
-                <mat-label>Package</mat-label>
-                <input matInput placeholder="Ex. 12" type="number" formControlName="package">
-                <mat-hint>In rupees</mat-hint>
-            </mat-form-field> -->
-        </div>
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
