@@ -15,45 +15,56 @@
             </mat-radio-group>
         </div> -->
 
-
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Chi Nhánh</mat-label>
-                <mat-select>
+                <mat-label>Kho</mat-label>
+                <mat-select formControlName="maKho">
                     <mat-option *ngFor="let food of listKho" [value]="food.maKho">
-                      {{food.tenKho}}
+                        {{food.tenKho}}
                     </mat-option>
-                  </mat-select>
+                </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Nhân viên</mat-label>
-                <mat-select>
+                <mat-select formControlName="maNV">
                     <mat-option *ngFor="let food of listNV" [value]="food.maNV">
-                      {{food.hoTen}}
+                        {{food.hoTen}}
                     </mat-option>
-                  </mat-select>
-       </mat-form-field>
+                </mat-select>
+            </mat-form-field>
             <!-- <mat-form-field appearance="outline">
                 <mat-label>Package</mat-label>
                 <input matInput placeholder="Ex. 12" type="number" formControlName="package">
                 <mat-hint>In rupees</mat-hint>
             </mat-form-field> -->
         </div>
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Đơn giá</mat-label>
-                <input matInput placeholder="nhập giá" formControlName="donGia">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label> số lượng</mat-label>
-                <input matInput type="number" placeholder="nhập số lượng" formControlName="diaChi">
-            </mat-form-field>
-        </div>
         <div class="row col-6">
-            <input type="date" class="form-control" [(ngModel)]="selectedDate">
+            <input type="date" class="form-control" formControlName="selectedDate">
         </div>
     </div>
+    <div formArrayName="ctpx">
+        <div *ngFor="let ctpxControl of empForm.get('ctpx')['controls']; let i = index">
+          <div class="ctpx-row" [formGroupName]="i">
+            <mat-form-field >
+              <input matInput formControlName="soLuong" placeholder="Số lượng">
+            </mat-form-field>
+            <mat-form-field>
+             
+              <input matInput formControlName="donGia" placeholder="Đơn giá">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="maVT">
+                    <mat-option value="">-- Chọn vật tư --</mat-option>
+                    <mat-option *ngFor="let food of listVT" placeholder="Mã VT" [value]="food.maVT">
+                        {{food.tenVT}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
     <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" (click)="addCtpx()">Thêm đơn</button>
         <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
         <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
     </div>

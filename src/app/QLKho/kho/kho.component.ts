@@ -104,6 +104,6 @@ export class KhoComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position', 'name','ma', 'diaChi', 'actions'];
+  displayedColumns: string[] = ['position', 'name','ma','chiNhanh', 'diaChi', 'actions'];
 }
 

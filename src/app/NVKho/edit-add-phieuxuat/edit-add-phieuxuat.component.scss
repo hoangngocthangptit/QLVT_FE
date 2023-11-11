@@ -1,0 +1,8 @@
+.ctpx-row {
+    display: flex;
+    gap: 16px; /* Khoảng cách giữa các trường nhập */
+  }
+  
+  .mat-form-field {
+    flex: 1; /* Các trường nhập chia đều chiều rộng trên cùng một hàng */
+  }

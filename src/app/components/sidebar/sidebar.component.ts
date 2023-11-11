@@ -39,7 +39,7 @@ export class SidebarComponent implements OnInit {
     const isAdmin = localStorage.getItem('role') === "admin";
 
     if (localStorage.getItem('token') !== null && !isAdmin) {
-      this.menuItems = ROUTES.filter(item => item.path === '/phieu-nhap' || item.path === '/kho' || item.path === '/phieu-xuat'  );
+      this.menuItems = ROUTES.filter(item => item.path === '/phieu-nhap' || item.path === '/kho' || item.path === '/phieu-xuat' ||  item.path ==='/vat-tu' );
     } else {
       this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography' ||  item.path ==='/vat-tu' ||  item.path ==='/nhan-vien' || item.path === '/nha-cung-cap' );
     }

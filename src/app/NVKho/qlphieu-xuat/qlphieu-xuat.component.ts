@@ -8,6 +8,7 @@ import { DialalogDeleteComponent } from 'app/dialalog-delete/dialalog-delete.com
 import Swal from 'sweetalert2';
 import { MainService } from 'app/Service/main.service';
 import { EditAddPhieunhapComponent } from '../edit-add-phieunhap/edit-add-phieunhap.component';
+import { EditAddPhieuxuatComponent } from '../edit-add-phieuxuat/edit-add-phieuxuat.component';
 export interface PeriodicElement {
   position: number;
   ten: string;
@@ -82,7 +83,7 @@ export class QLPhieuXuatComponent implements OnInit {
     });
   }
   addForm() {
-    const dialogRef = this.dialog.open(EditAddPhieunhapComponent);
+    const dialogRef = this.dialog.open(EditAddPhieuxuatComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {

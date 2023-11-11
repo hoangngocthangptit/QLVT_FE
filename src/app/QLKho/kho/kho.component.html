@@ -20,7 +20,7 @@
             </ng-container>
             <ng-container matColumnDef="ma">
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mã kho</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.makho}} </td>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maKho}} </td>
             </ng-container>
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Tên kho</th>
@@ -30,7 +30,10 @@
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Tên địa chỉ</th>
               <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.diaChi}} </td>
             </ng-container>
-    
+            <ng-container matColumnDef="chiNhanh">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Chi nhánh</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.tenCN}} </td>
+            </ng-container>
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center; width: 10%;">
                 <button mat-raised-button color="primary" (click)="addForm()">Thêm bản ghi</button>

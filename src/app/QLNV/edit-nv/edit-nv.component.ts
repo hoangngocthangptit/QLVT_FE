@@ -13,8 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class EditNvComponent implements OnInit {
   empForm: FormGroup;
-  public  chiNhanhs = [];
-  public pass= undefined;
+  public chiNhanhs = [];
+  public pass = undefined;
   constructor(
     private _fb: FormBuilder,
     private _empService: MainService,
@@ -26,9 +26,10 @@ export class EditNvComponent implements OnInit {
       hoTen: '',
       sdt: '',
       diaChi: '',
-      role:'',
-      trangThai:'',
-      password:''
+      role: '',
+      trangThai: '',
+      password: '',
+      pass: ''
       // gender: '',
       // education: '',
       // company: '',
@@ -41,32 +42,29 @@ export class EditNvComponent implements OnInit {
     this.empForm.patchValue(this.data);
     this.listChiNhanh();
   }
-  listChiNhanh(){
-    this.khoService.getAllChiNhanh().subscribe((res: any) => {
-       this.chiNhanhs = res.obj;
-     });
-   }
-   onFormSubmit() {
-    
-    if (this.empForm.valid) {
-        if(this.pass !=undefined && this.pass != ''){
-          this.empForm.value.password = this.pass;
-        }
-        this._empService
-          .updateNV(this.data.userId, this.empForm.value)
-          .subscribe({
-            next: (val: any) => {
-              Swal.fire({
-                icon: "success",
-                title: "Cập nhật thông tin thành công",
-              });
-              this._dialogRef.close(true);
-            },
-            error: (err: any) => {
-              console.error(err);
-            },
-          });
+  onFormSubmit() {
+    if (this.empForm.value.pass != undefined && this.empForm.value.pass != '') {
+      this.empForm.value.password = this.empForm.value.pass;
     }
+    this._empService
+      .updateNV(this.data.userId, this.empForm.value)
+      .subscribe({
+        next: (val: any) => {
+          Swal.fire({
+            icon: "success",
+            title: "Cập nhật thông tin thành công",
+          });
+          this._dialogRef.close(true);
+        },
+        error: (err: any) => {
+          console.error(err);
+        },
+      });
+  }
+  listChiNhanh() {
+    this.khoService.getAllChiNhanh().subscribe((res: any) => {
+      this.chiNhanhs = res.obj;
+    });
   }
 
 }
