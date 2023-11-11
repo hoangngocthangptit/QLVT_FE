@@ -92,6 +92,20 @@ export class QLPhieuXuatComponent implements OnInit {
       },
     });
   }
+  formatCurrency(value: number): string {
+    // Kiểm tra nếu value không phải là số
+    if (isNaN(value)) {
+      return 'Invalid value';
+    }
+
+    // Sử dụng toLocaleString để định dạng số tiền
+    return value.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+    });
+  }
+  
   openEditForm(data: any) {
     const dialogRef = this.dialog.open(EditAddPhieunhapComponent, {
       data,

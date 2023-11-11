@@ -107,6 +107,6 @@ export class QLVatTuComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position', 'name', 'soLuongTon', 'dvt', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'soLuongTon','maNCC', 'dvt', 'actions'];
 
 }

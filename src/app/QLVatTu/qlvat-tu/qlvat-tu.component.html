@@ -30,6 +30,10 @@
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Đơn vị</th>
               <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.dvt}} </td>
             </ng-container>
+            <ng-container matColumnDef="maNCC">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mã Nhà cung cấp</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maNCC}} </td>
+            </ng-container>
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center; width: 10%;">
                 <button mat-raised-button color="primary" (click)="addForm()">Thêm bản ghi</button>

@@ -23,6 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class QLPhieuNhapComponent implements OnInit {
   constructor(private dialog: MatDialog,
     private khoService: MainService,
+
     private route: Router) { }
   public get userService(): MainService {
     return this.khoService;
@@ -57,6 +58,19 @@ export class QLPhieuNhapComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  formatCurrency(value: number): string {
+    // Kiểm tra nếu value không phải là số
+    if (isNaN(value)) {
+      return 'Invalid value';
+    }
+
+    // Sử dụng toLocaleString để định dạng số tiền
+    return value.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+    });
   }
   deleteDilag(id: number) {
     // if (localStorage.getItem('token') === null) {

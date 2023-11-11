@@ -13,15 +13,21 @@
                 <input matInput placeholder="nhập địa chỉ" formControlName="sdt">
             </mat-form-field>
         </div>
+
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Chi Nhánh</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let food of chiNhanhs" [value]="food.maCN">
-                        {{food.chiNhanh}}
-                    </mat-option>
-                </mat-select>
+                <mat-label>Trạng thái</mat-label>
+                <select matNativeControl required formControlName="trangThai">
+                    <option value="true">Hoạt động</option>
+                    <option value="false">Khóa</option>
+                </select>
             </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Mật khẩu</mat-label>
+                <input matInput placeholder="Không ghi gì nếu không đổi" formControlName="pass">
+            </mat-form-field>
+        </div>
+        <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Quyền</mat-label>
                 <select matNativeControl required formControlName="role">
@@ -30,19 +36,6 @@
 
                 </select>
             </mat-form-field>
-        </div>
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Trạng thái</mat-label>
-                <select matNativeControl required formControlName="trangThai">
-                    <option value="true">Hoạt động</option>
-                    <option value="false">Khóa</option>
-                  </select>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Mật khẩu</mat-label>
-            <input matInput placeholder="Không ghi gì nếu không đổi" formControlName="pass">
-    </mat-form-field>
         </div>
     </div>
     <div mat-dialog-actions class="action">

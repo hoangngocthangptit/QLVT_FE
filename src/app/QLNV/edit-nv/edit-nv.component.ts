@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MainService } from 'app/Service/main.service';
 import { CoreService } from 'app/core/core.service';
@@ -23,11 +23,11 @@ export class EditNvComponent implements OnInit {
     private khoService: MainService,
   ) {
     this.empForm = this._fb.group({
-      hoTen: '',
-      sdt: '',
+      hoTen:  ['', Validators.required],
+      sdt:  ['', Validators.required],
       diaChi: '',
       role: '',
-      trangThai: '',
+      trangThai:  ['', Validators.required],
       password: '',
       pass: ''
       // gender: '',
@@ -50,11 +50,18 @@ export class EditNvComponent implements OnInit {
       .updateNV(this.data.userId, this.empForm.value)
       .subscribe({
         next: (val: any) => {
-          Swal.fire({
-            icon: "success",
-            title: "Cập nhật thông tin thành công",
-          });
-          this._dialogRef.close(true);
+          if (val.statusCode === 200) {
+            Swal.fire({
+              icon: "success",
+              title: "Thêm thành công",
+            });
+            this._dialogRef.close(true);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: val.statusCode,
+            });
+          }
         },
         error: (err: any) => {
           console.error(err);

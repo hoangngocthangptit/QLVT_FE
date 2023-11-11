@@ -34,8 +34,8 @@ export class EditAddPhieuxuatComponent implements OnInit {
   ) {
     this.empForm = this._fb.group({
       tenKho: '',
-      maKho: '',
-      maNV: '',
+      maKho: ['', Validators.required],
+      maNV: ['', Validators.required],
       ngay: '',
       dob: '',
       selectedDate:'',
@@ -56,7 +56,7 @@ export class EditAddPhieuxuatComponent implements OnInit {
     return this._fb.group({
       soLuong: [null, Validators.required],  // Kiểu dữ liệu là số nguyên
       donGia: [null, Validators.required],
-      maVT: ''
+      maVT: ['', Validators.required]
     });
   }
   ngOnInit(): void {
@@ -78,11 +78,18 @@ export class EditAddPhieuxuatComponent implements OnInit {
     this.empForm.value.ngay = this.empForm.value.selectedDate;
     this._empService.addPhieuXuat(this.empForm.value).subscribe({
       next: (val: any) => {
-        Swal.fire({
-          icon: "success",
-          title: "Thêm thành công",
-        });
-        this._dialogRef.close(true);
+        if (val.statusCode === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "Thêm thành công",
+          });
+          this._dialogRef.close(true);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: val.message,
+          });
+        }
       },
       error: (err: any) => {
         console.error(err);

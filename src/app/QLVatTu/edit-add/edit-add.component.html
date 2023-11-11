@@ -18,6 +18,14 @@
                 <mat-label> Đơn vị</mat-label>
                 <input matInput placeholder="nhập đơn vị" formControlName="dvt">
             </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="maNCC">
+                    <mat-option value="">-- Chọn Nhà Cung cấp --</mat-option>
+                    <mat-option *ngFor="let food of listNCC" [value]="food.maNCC">
+                        {{food.tenNCC}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
     </div>
     <div mat-dialog-actions class="action">

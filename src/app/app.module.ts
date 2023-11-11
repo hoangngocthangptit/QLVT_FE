@@ -49,6 +49,7 @@ import { EditAddPhieunhapComponent } from './NVKho/edit-add-phieunhap/edit-add-p
 import { EditAddPhieuxuatComponent } from './NVKho/edit-add-phieuxuat/edit-add-phieuxuat.component';
 import { ListNCCComponent } from './QLNCC/list-ncc/list-ncc.component';
 import { EditAddNccComponent } from './QLNCC/edit-add-ncc/edit-add-ncc.component';
+import { CurrencyPipe } from '@angular/common';
 // import { NgImageSliderModule } from 'ng-image-slider';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
@@ -80,8 +81,7 @@ import { EditAddNccComponent } from './QLNCC/edit-add-ncc/edit-add-ncc.component
     RouterModule,
     AppRoutingModule,
     MatTableModule,
-   
-    
+    CurrencyPipe,
    
 
 
@@ -117,8 +117,10 @@ import { EditAddNccComponent } from './QLNCC/edit-add-ncc/edit-add-ncc.component
     
   ],
   providers: [{
+
     provide: RECAPTCHA_SETTINGS,
     useValue: {siteKey:environment.recaptcha.siteKey,} as RecaptchaSettings,
+    
 }],
   bootstrap: [AppComponent]
 })

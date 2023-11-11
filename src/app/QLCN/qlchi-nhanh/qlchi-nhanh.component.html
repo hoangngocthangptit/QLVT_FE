@@ -39,11 +39,8 @@
                 <button mat-raised-button color="primary" (click)="addForm()">Thêm bản ghi</button>
               </th>
               <td mat-cell *matCellDef="let element">
-                <button mat-icon-button (click)="openEditForm(element)">
+                <button mat-icon-button (click)="openEditForm(element)" class="text-center">
                   <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-icon-button (click)="deleteDilag(element.maCN)">
-                  <mat-icon>delete</mat-icon>
                 </button>
               </td>
             </ng-container>

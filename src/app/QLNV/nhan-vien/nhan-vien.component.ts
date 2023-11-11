@@ -94,6 +94,6 @@ export class NhanVienComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position','email' , 'ma','name', 'diaChi','role','trangThai', 'actions'];
+  displayedColumns: string[] = ['position','email' , 'ma','name', 'diaChi','role','chiNhanh','trangThai', 'actions'];
 
 }
