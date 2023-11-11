@@ -1,1 +1,28 @@
-<p>edit-add-ncc works!</p>
+<div mat-dialog-title>
+    <h1>Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label> Tên Nhà Cung Cấp</mat-label>
+                <input matInput type="text" placeholder="nhập tên Nhà cung cấp" formControlName="tenNCC">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label> Địa chỉ</mat-label>
+                <input matInput placeholder="nhập địa chỉ" formControlName="diaChi">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Số điện thoại</mat-label>
+                <input matInput placeholder="nhập số điện thoại" formControlName="sdt">
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>

@@ -42,8 +42,8 @@
             <input type="date" class="form-control" formControlName="selectedDate">
         </div>
     </div>
-    <div formArrayName="ctpx">
-        <div *ngFor="let ctpxControl of empForm.get('ctpx')['controls']; let i = index">
+    <div formArrayName="ctpn">
+        <div *ngFor="let ctpxControl of empForm.get('ctpn')['controls']; let i = index">
           <div class="ctpx-row" [formGroupName]="i">
             <mat-form-field >
               <input matInput formControlName="soLuong" placeholder="Số lượng">

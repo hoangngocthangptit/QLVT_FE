@@ -44,7 +44,7 @@ export class ListNCCComponent implements OnInit {
     this.doSearh();
   }
   doSearh() {
-    this.khoService.getAllKho().subscribe((res: any) => {
+    this.khoService.getAllNhaCungCap().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.obj);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -107,6 +107,6 @@ export class ListNCCComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position', 'name','ma', 'diaChi', 'actions'];
+  displayedColumns: string[] = ['position', 'name','ma', 'diaChi','sdt', 'actions'];
 
 }

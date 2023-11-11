@@ -19,16 +19,20 @@
   
               </ng-container>
               <ng-container matColumnDef="ma">
-                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mã kho</th>
-                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.makho}} </td>
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mã Nhà cung cấp</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maNCC}} </td>
               </ng-container>
               <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Tên kho</th>
-                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.tenKho}} </td>
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Tên Nhà cung cấp</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.tenNCC}} </td>
               </ng-container>
               <ng-container matColumnDef="diaChi">
                 <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Tên địa chỉ</th>
                 <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.diaChi}} </td>
+              </ng-container>
+              <ng-container matColumnDef="sdt">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Số điện thoại</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.sdt}} </td>
               </ng-container>
       
               <ng-container matColumnDef="actions">

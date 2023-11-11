@@ -39,7 +39,7 @@ export class EditAddPhieunhapComponent implements OnInit {
       ngay: '',
       dob: '',
       selectedDate:'',
-      ctpx: this._fb.array([this.createCtpx()])
+      ctpn: this._fb.array([this.createCtpx()])
 
       // gender: '',
       // education: '',
@@ -49,7 +49,7 @@ export class EditAddPhieunhapComponent implements OnInit {
     });
   }
   addCtpx() {
-    const ctpxArray = this.empForm.get('ctpx') as FormArray;
+    const ctpxArray = this.empForm.get('ctpn') as FormArray;
     ctpxArray.push(this.createCtpx());
   }
   createCtpx(): FormGroup {
@@ -76,7 +76,7 @@ export class EditAddPhieunhapComponent implements OnInit {
   }
   onFormSubmit() {
     this.empForm.value.ngay = this.empForm.value.selectedDate;
-    this._empService.addPhieuXuat(this.empForm.value).subscribe({
+    this._empService.addPhieuNhap(this.empForm.value).subscribe({
       next: (val: any) => {
         Swal.fire({
           icon: "success",
