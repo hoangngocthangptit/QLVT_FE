@@ -59,10 +59,6 @@ export class KhoComponent implements OnInit {
     }
   }
   deleteDilag(id: number) {
-    // if (localStorage.getItem('token') === null) {
-    //   // this.route.navigateByUrl('login');
-    //   return;
-    // }
     const dialogRef = this.dialog.open(DialalogDeleteComponent, {
       width: "auto",
       height: "auto",
@@ -71,10 +67,18 @@ export class KhoComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.userService.deleteKho(id).subscribe((message) => {
-          Swal.fire({
-            icon: "success",
-            title: "đã xóa",
-          });
+          if (message.statusCode === 200) {
+            Swal.fire({
+              icon: "success",
+              title: "Xóa thành công",
+            });
+            
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: message.message,
+            });
+          }
           this.doSearh();
         });
       }

@@ -33,12 +33,9 @@ export class EditAddPhieuxuatComponent implements OnInit {
     private khoService: MainService,
   ) {
     this.empForm = this._fb.group({
-      tenKho: '',
       maKho: ['', Validators.required],
       maNV: ['', Validators.required],
-      ngay: '',
-      dob: '',
-      selectedDate:'',
+      ngay: ['', Validators.required],
       ctpx: this._fb.array([this.createCtpx()])
 
       // gender: '',
@@ -75,26 +72,51 @@ export class EditAddPhieuxuatComponent implements OnInit {
     });
   }
   onFormSubmit() {
-    this.empForm.value.ngay = this.empForm.value.selectedDate;
-    this._empService.addPhieuXuat(this.empForm.value).subscribe({
-      next: (val: any) => {
-        if (val.statusCode === 200) {
-          Swal.fire({
-            icon: "success",
-            title: "Thêm thành công",
+    if (this.empForm.valid) {
+      if (this.data) {
+        this._empService
+          .updatePhieuXuat(this.data.maPX, this.empForm.value)
+          .subscribe({
+            next: (val: any) => {
+              if (val.statusCode === 200) {
+                Swal.fire({
+                  icon: "success",
+                  title: "Sửa thành công",
+                });
+                this._dialogRef.close(true);
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: val.message,
+                });
+              }
+            },
+            error: (err: any) => {
+              console.error(err);
+            },
           });
-          this._dialogRef.close(true);
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: val.message,
-          });
-        }
-      },
-      error: (err: any) => {
-        console.error(err);
-      },
-    });
-
+      }
+      else {
+        this._empService.addPhieuXuat(this.empForm.value).subscribe({
+          next: (val: any) => {
+            if (val.statusCode === 200) {
+              Swal.fire({
+                icon: "success",
+                title: "Thêm thành công",
+              });
+              this._dialogRef.close(true);
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: val.message,
+              });
+            }
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
+      }
+    }
   }
 }

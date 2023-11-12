@@ -19,7 +19,7 @@
   
               </ng-container>
               <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> mã phiếu nhập</th>
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mã phiếu Xuất</th>
                 <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maPN}} </td>
               </ng-container>
               <ng-container matColumnDef="diaChi">
@@ -52,7 +52,7 @@
                   <button mat-icon-button (click)="openEditForm(element)">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button mat-icon-button (click)="deleteDilag(element.maKho)">
+                  <button mat-icon-button (click)="deleteDilag(element.maPX)">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>

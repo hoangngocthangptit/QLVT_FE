@@ -33,12 +33,9 @@ export class EditAddPhieunhapComponent implements OnInit {
     private khoService: MainService,
   ) {
     this.empForm = this._fb.group({
-      tenKho: '',
       maKho: ['', Validators.required],
       maNV: ['', Validators.required],
-      ngay: '',
-      dob: '',
-      selectedDate:'',
+      ngay: ['', Validators.required],
       ctpn: this._fb.array([this.createCtpx()])
 
       // gender: '',
@@ -56,7 +53,7 @@ export class EditAddPhieunhapComponent implements OnInit {
     return this._fb.group({
       soLuong: [null, Validators.required],  // Kiểu dữ liệu là số nguyên
       donGia: [null, Validators.required],
-      maVT:  ['', Validators.required],
+      maVT: ['', Validators.required],
     });
   }
   ngOnInit(): void {
@@ -75,27 +72,52 @@ export class EditAddPhieunhapComponent implements OnInit {
     });
   }
   onFormSubmit() {
-
-    this._empService.addPhieuNhap(this.empForm.value).subscribe({
-      next: (val: any) => {
-        if (val.statusCode === 200) {
-          Swal.fire({
-            icon: "success",
-            title: "Thêm thành công",
+    if (this.empForm.valid) {
+      if (this.data) {
+        this._empService
+          .updatePhieuNhap(this.data.maPN, this.empForm.value)
+          .subscribe({
+            next: (val: any) => {
+              if (val.statusCode === 200) {
+                Swal.fire({
+                  icon: "success",
+                  title: "Sửa thành công",
+                });
+                this._dialogRef.close(true);
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: val.message,
+                });
+              }
+            },
+            error: (err: any) => {
+              console.error(err);
+            },
           });
-          this._dialogRef.close(true);
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: val.message,
-          });
-        }
-      },
-      error: (err: any) => {
-        console.error(err);
-      },
-    });
-
+      }
+      else {
+        this._empService.addPhieuNhap(this.empForm.value).subscribe({
+          next: (val: any) => {
+            if (val.statusCode === 200) {
+              Swal.fire({
+                icon: "success",
+                title: "Thêm thành công",
+              });
+              this._dialogRef.close(true);
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: val.message,
+              });
+            }
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
+      }
+    }
   }
 
 

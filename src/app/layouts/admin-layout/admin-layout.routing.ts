@@ -34,7 +34,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'phieu-nhap',     component: QLPhieuNhapComponent },
     { path: 'phieu-xuat',     component: QLPhieuXuatComponent },
     { path: 'nha-cung-cap',          component: ListNCCComponent },
-    // { path: 'maps',           component: MapsComponent },
+    { path: 'dashboard',           component: DashboardComponent },
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent },
 

@@ -8,7 +8,7 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    // { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/chi-nhanh', title: 'Quản lí chi nhánh',  icon:'content_paste', class: '' },
     { path: '/kho', title: 'Quản lí kho',  icon:'unarchive', class: '' },
     { path: '/vat-tu', title: 'Quản lí vật tư',  icon:'content_paste', class: '' },
@@ -39,7 +39,7 @@ export class SidebarComponent implements OnInit {
     const isAdmin = localStorage.getItem('role') === "admin";
 
     if (localStorage.getItem('token') !== null && !isAdmin) {
-      this.menuItems = ROUTES.filter(item => item.path === '/phieu-nhap' || item.path === '/kho' || item.path === '/phieu-xuat' ||  item.path ==='/vat-tu' );
+      this.menuItems = ROUTES.filter(item => item.path === '/phieu-nhap' || item.path === '/kho' || item.path === '/phieu-xuat' ||  item.path ==='/vat-tu' ||  item.path ==='/dashboard');
     } else {
       this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography' ||  item.path ==='/vat-tu' ||  item.path ==='/nhan-vien' || item.path === '/nha-cung-cap' );
     }

@@ -84,7 +84,7 @@ export class QLPhieuNhapComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.userService.deleteKho(id).subscribe((message) => {
+        this.userService.deletePhieuNhap(id).subscribe((message) => {
           Swal.fire({
             icon: "success",
             title: "đã xóa",
