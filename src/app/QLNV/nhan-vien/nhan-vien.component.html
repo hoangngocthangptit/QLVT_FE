@@ -32,11 +32,11 @@
             </ng-container>
             <ng-container matColumnDef="diaChi">
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Số điện thoại</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.sdt}} </td>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> 0{{element.sdt}} </td>
             </ng-container>
             <ng-container matColumnDef="chiNhanh">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Chi Nhanh</th>
-              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.maCN.maCN}} </td>
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Chi Nhánh</th>
+              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.chinhNhanh}} </td>
             </ng-container>
             <ng-container matColumnDef="role">
               <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Role</th>

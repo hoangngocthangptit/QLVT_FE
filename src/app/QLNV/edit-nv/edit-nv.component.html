@@ -36,6 +36,14 @@
 
                 </select>
             </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Chi Nhánh</mat-label>
+                <mat-select formControlName="maCN">
+                    <mat-option *ngFor="let food of chiNhanhs" [value]="food.maCN">
+                        {{food.chiNhanh}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
     </div>
     <div mat-dialog-actions class="action">

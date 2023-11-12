@@ -71,7 +71,7 @@ export class LoginComponentComponent implements OnInit {
       this.route.navigateByUrl('chi-nhanh');
      }
      else{
-      this.route.navigateByUrl('phieu-nhap');
+      this.route.navigateByUrl('dashboard');
      }
       return;
     // }

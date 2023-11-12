@@ -26,10 +26,11 @@ export class EditNvComponent implements OnInit {
       hoTen:  ['', Validators.required],
       sdt:  ['', Validators.required],
       diaChi: '',
-      role: '',
+      role: ['', Validators.required],
       trangThai:  ['', Validators.required],
       password: '',
-      pass: ''
+      pass: '',
+      maCN:['', Validators.required],
       // gender: '',
       // education: '',
       // company: '',
@@ -39,8 +40,9 @@ export class EditNvComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.empForm.patchValue(this.data);
     this.listChiNhanh();
+    this.empForm.patchValue(this.data);
+   
   }
   onFormSubmit() {
     if (this.empForm.value.pass != undefined && this.empForm.value.pass != '') {
