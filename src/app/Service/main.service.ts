@@ -223,4 +223,96 @@ export class MainService {
     return this.http.put(`http://localhost:8080/phieu-xuat/edit/${id}`, data);
   }
 
+  //-----------------------
+  // báo cáo
+
+  /* GET http://localhost:8080/bao-cao/thong-ke-nhap-xuat
+
+  {
+    "message": "thành công",
+    "statusCode": 200,
+    "obj": [
+      {
+        "maVT": "VT0001",
+        "tenVT": "Vat tu 1",
+        "soLuongNhap": 30,
+        "soLuongXuat": 365,
+        "donGiaNhap": 200000,
+        "donGiaXuat": 134534
+      },
+      {
+        "maVT": "VT0002",
+        "tenVT": "Vat tu 2",
+        "soLuongNhap": 0,
+        "soLuongXuat": 3454,
+        "donGiaNhap": 0,
+        "donGiaXuat": 345434555
+      }
+    ]
+  }
+  */
+  getThongKeNhapXuat(): Observable<any> {
+    return this.http.get('http://localhost:8080/bao-cao/thong-ke-nhap-xuat', this.httpOptions);
+  }
+
+  /* GET http://localhost:8080/bao-cao/thong-ke-nhap-xuat-chi-nhanh/CN0001
+  {
+    "message": "thành công",
+    "statusCode": 200,
+    "obj": [
+      {
+        "maVT": "VT0001",
+        "tenVT": "Vat tu 1",
+        "soLuongNhap": 30,
+        "soLuongXuat": 365,
+        "donGiaNhap": 200000,
+        "donGiaXuat": 134534
+      },
+      {
+        "maVT": "VT0002",
+        "tenVT": "Vat tu 2",
+        "soLuongNhap": 0,
+        "soLuongXuat": 3454,
+        "donGiaNhap": 0,
+        "donGiaXuat": 345434555
+      }
+    ]
+  }
+  */
+  getThongKeNhapXuatChiNhanh(id: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/bao-cao/thong-ke-nhap-xuat-chi-nhanh/${id}`, this.httpOptions);
+  }
+
+  /* GET http://localhost:8080/bao-cao/thong-ke-nhap-xuat-kho-theo-ngay
+  {
+    "message": "thành công",
+    "statusCode": 200,
+    "obj": [
+      {
+        "maKho": "KHO0001",
+        "tenKho": "Kho so 1",
+        "ngay": "2023-11-21",
+        "tongDonGiaNhap": 0,
+        "tongSoLuongNhap": 0,
+        "tongDonGiaXuat": 345469089,
+        "tongSoLuongXuat": 3799,
+        "chiNhanh": "Chi nhánh 1"
+      },
+      {
+        "maKho": "KHO0001",
+        "tenKho": "Kho so 1",
+        "ngay": "2021-11-03",
+        "tongDonGiaNhap": 200000,
+        "tongSoLuongNhap": 30,
+        "tongDonGiaXuat": 100000,
+        "tongSoLuongXuat": 20,
+        "chiNhanh": "Chi nhánh 1"
+      }
+    ]
+  }
+  */
+  getThongKeNhapXuatKhoTheoNgay(): Observable<any> {
+    return this.http.get('http://localhost:8080/bao-cao/thong-ke-nhap-xuat-kho-theo-ngay', this.httpOptions);
+  }
+
 }
