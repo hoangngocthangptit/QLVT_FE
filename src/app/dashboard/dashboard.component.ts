@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { DialalogDeleteComponent } from 'app/dialalog-delete/dialalog-delete.component';
+import Swal from 'sweetalert2';
+import { MainService } from 'app/Service/main.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -8,7 +16,12 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(   private khoService: MainService,) { }
+  kho:number;
+  pn:number;
+  px:number;
+  vt:number;
+  nhapXuatList: any[] = [];
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -67,7 +80,21 @@ export class DashboardComponent implements OnInit {
   };
   ngOnInit() {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-
+      this.khoService.getAllPhieuNhap().subscribe((res: any) => {
+        this.pn = res.obj.length; 
+      });
+      this.khoService.getAllPhieuXuat().subscribe((res: any) => {
+        this.px = res.obj.length; 
+      });
+      this.khoService.getAllKho().subscribe((res: any) => {
+        this.kho = res.obj.length; 
+      });
+      this.khoService.getAllVatTu().subscribe((res: any) => {
+        this.vt = res.obj.length; 
+      });
+      this.khoService.getThongKeNhapXuat().subscribe((res: any) => {
+        this.nhapXuatList = res.obj; 
+      });
       const dataDailySalesChart: any = {
           labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
           series: [
@@ -145,6 +172,19 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+  }
+  formatCurrency(value: number): string {
+    // Kiểm tra nếu value không phải là số
+    if (isNaN(value)) {
+      return 'Invalid value';
+    }
+
+    // Sử dụng toLocaleString để định dạng số tiền
+    return value.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+    });
   }
 
 }

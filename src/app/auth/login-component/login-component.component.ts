@@ -68,7 +68,7 @@ export class LoginComponentComponent implements OnInit {
       // localStorage.setItem('role', 'user');
       debugger
      if (data.obj.role === 'admin') {
-      this.route.navigateByUrl('chi-nhanh');
+      this.route.navigateByUrl('dashboard');
      }
      else{
       this.route.navigateByUrl('dashboard');

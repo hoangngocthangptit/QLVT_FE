@@ -8,8 +8,8 @@
                           <i class="material-icons">content_copy</i>
                       </div>
                       <p class="card-category">Phiếu nhập</p>
-                      <h3 class="card-title">49/50
-                          <small>GB</small>
+                      <h3 class="card-title">{{pn}} 
+                          <small>phiếu</small>
                       </h3>
                   </div>
                   <div class="card-footer">
@@ -27,7 +27,7 @@
                           <i class="material-icons">store</i>
                       </div>
                       <p class="card-category">Kho</p>
-                      <h3 class="card-title">$34,245</h3>
+                      <h3 class="card-title">{{kho}} Kho</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -43,7 +43,7 @@
                           <i class="material-icons">content_copy</i>
                       </div>
                       <p class="card-category">Phiếu xuất</p>
-                      <h3 class="card-title">75</h3>
+                      <h3 class="card-title">{{px}} Phiếu</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -59,7 +59,7 @@
                           <i class="fa fa-suitcase"></i>
                       </div>
                       <p class="card-category">Vật tư</p>
-                      <h3 class="card-title">+245</h3>
+                      <h3 class="card-title">{{vt}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -76,9 +76,9 @@
                       <div class="ct-chart" id="dailySalesChart"></div>
                   </div>
                   <div class="card-body">
-                      <h4 class="card-title">Daily Sales</h4>
+                      <h4 class="card-title">Thống kê xuất  theo ngày</h4>
                       <p class="card-category">
-                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> Tỉ Lệ nhập</p>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -93,8 +93,8 @@
                       <div class="ct-chart" id="websiteViewsChart"></div>
                   </div>
                   <div class="card-body">
-                      <h4 class="card-title">Email Subscriptions</h4>
-                      <p class="card-category">Last Campaign Performance</p>
+                      <h4 class="card-title">Thống kê kho theo 10 ngày gần nhất</h4>
+                      <p class="card-category">Số lượng nhập</p>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -109,41 +109,28 @@
               <div class="card">
                   <div class="card-header card-header-warning">
                       <h4 class="card-title">Phiếu nhập, xuất</h4>
-                      <p class="card-category">Thống kê nhân viên có nhiều phiếu nhập xuất nhất</p>
+                      <p class="card-category">Thống kê vật tư, đơn giá nhập xuất</p>
                   </div>
                   <div class="card-body table-responsive">
                       <table class="table table-hover">
                           <thead class="text-warning">
-                              <th>ID</th>
-                              <th>Nhân viên</th>
-                              <th>Tổng tiền phiếu</th>
-                              <th>Tổng số lượng vật tư</th>
+                              <th>STT</th>
+                              <th>Tên vật tư</th>
+                              <th>Số lượng nhập</th>
+                              <th>Số lượng Xuất</th>
+                              <th>Tổng Đơn giá nhập</th>
+                              <th>Tổng đơn giá xuất</th>
                           </thead>
                           <tbody>
-                              <tr>
+                            <tr *ngFor="let item of nhapXuatList;let i = index">
                                   <td>1</td>
-                                  <td>Dakota Rice</td>
-                                  <td>$36,738</td>
-                                  <td>Niger</td>
+                                  <td>{{ i + 1 }}</td>
+                                  <td>{{item.soLuongNhap}}</td>
+                                  <td>{{item.soLuongXuat}}</td>
+                                  <td>{{ formatCurrency(item.donGiaNhap)}}</td>
+                                  <td>{{ formatCurrency(item.donGiaXuat)}}</td>
                               </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Minerva Hooper</td>
-                                  <td>$23,789</td>
-                                  <td>Curaçao</td>
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>Sage Rodriguez</td>
-                                  <td>$56,142</td>
-                                  <td>Netherlands</td>
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>Philip Chaney</td>
-                                  <td>$38,735</td>
-                                  <td>Korea, South</td>
-                              </tr>
+                            
                           </tbody>
                       </table>
                   </div>

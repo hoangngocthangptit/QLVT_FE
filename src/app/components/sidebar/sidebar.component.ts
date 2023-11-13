@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
     if (localStorage.getItem('token') !== null && !isAdmin) {
       this.menuItems = ROUTES.filter(item => item.path === '/phieu-nhap' || item.path === '/kho' || item.path === '/phieu-xuat' ||  item.path ==='/vat-tu' ||  item.path ==='/dashboard');
     } else {
-      this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography' ||  item.path ==='/vat-tu' ||  item.path ==='/nhan-vien' || item.path === '/nha-cung-cap' );
+      this.menuItems = ROUTES.filter(item => item.path === '/chi-nhanh' || item.path === '/kho' ||  item.path ==='/typography' ||  item.path ==='/vat-tu' ||  item.path ==='/nhan-vien' || item.path === '/nha-cung-cap' ||  item.path ==='/dashboard');
     }
   }
   isMobileMenu() {
