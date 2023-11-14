@@ -315,4 +315,46 @@ export class MainService {
     return this.http.get('http://localhost:8080/bao-cao/thong-ke-nhap-xuat-kho-theo-ngay', this.httpOptions);
   }
 
+  /* GET http://localhost:8080/bao-cao/thong-ke-nhap-theo-thang
+  {
+    "message": "thành công",
+    "statusCode": 200,
+    "obj": [
+      {
+        "soLuongNhap": 30,
+        "tongDonGiaNhap": 200000,
+        "thang": 11,
+        "nam": 2021
+      }
+    ]
+  }
+  */
+  getThongKeNhapTheoThang(): Observable<any> {
+    return this.http.get('http://localhost:8080/bao-cao/thong-ke-nhap-theo-thang', this.httpOptions);
+  }
+
+  /* GET http://localhost:8080/bao-cao/thong-ke-xuat-theo-thang
+  {
+    "message": "thành công",
+    "statusCode": 200,
+    "obj": [
+      {
+        "soLuongXuat": 20,
+        "tongDonGiaXuat": 100000,
+        "thang": 11,
+        "nam": 2021
+      },
+      {
+        "soLuongXuat": 3799,
+        "tongDonGiaXuat": 345469089,
+        "thang": 11,
+        "nam": 2023
+      }
+    ]
+  }
+  */
+  getThongKeXuatTheoThang(): Observable<any> {
+    return this.http.get('http://localhost:8080/bao-cao/thong-ke-xuat-theo-thang', this.httpOptions);
+  }
+
 }
