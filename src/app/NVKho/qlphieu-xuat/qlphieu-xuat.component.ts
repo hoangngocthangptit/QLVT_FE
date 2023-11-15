@@ -120,6 +120,6 @@ export class QLPhieuXuatComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position', 'name', 'diaChi','maNV','maVT','soluong','dongia', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'diaChi','maNV','maVT','soluong','kho','dongia', 'actions'];
 
 }

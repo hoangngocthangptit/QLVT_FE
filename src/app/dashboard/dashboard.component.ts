@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
         const listA: number[] = Array.from({ length: 12 }, () => 0);
         this.tkNhap.forEach(item => {
           if (item.thang >= 1 && item.thang <= 12 && item.nam === 2023) {
-            listA[item.thang - 1] = (item.tongDonGiaNhap)/100000;
+            listA[item.thang - 1] = (item.tongDonGiaNhap)/1000000;
           }
         });
       const dataDailySalesChart: any = {
@@ -108,7 +108,7 @@ export class DashboardComponent implements OnInit {
       const listB: number[] = Array.from({ length: 12 }, () => 0);
       this.tkXuat.forEach(item => {
         if (item.thang >= 1 && item.thang <= 12 && item.nam === 2023) {
-          listB[item.thang - 1] = (item.tongDonGiaXuat)/100000;
+          listB[item.thang - 1] = (item.tongDonGiaXuat)/1000000;
         }
       });
       var datawebsiteViewsChart = {

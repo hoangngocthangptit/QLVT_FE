@@ -118,6 +118,6 @@ export class QLPhieuNhapComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['position', 'name', 'diaChi','maNV','maVT','soluong','dongia', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'diaChi','maNV','maVT','kho','soluong','dongia', 'actions'];
 
 }
