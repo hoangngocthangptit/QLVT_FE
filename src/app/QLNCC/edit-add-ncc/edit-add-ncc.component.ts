@@ -32,7 +32,6 @@ export class EditAddNccComponent implements OnInit {
     ) {
       this.empForm = this._fb.group({
         tenNCC: ['', Validators.required],
-        maCN: ['', Validators.required],
         sdt: '',
         diaChi:['', Validators.required],
   
